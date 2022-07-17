@@ -1,35 +1,9 @@
-import checkComplete from './components/checkComplete.js';
-import deleteIcon from "./components/deleteIcon.js";
+import { addTask } from './components/addTask.js';
+import { displayTasks } from './components/readTasks.js';
 
+const btn = document.querySelector('[data-form-btn]');
 
-    const btn = document.querySelector('[data-form-btn');
+//Arrow functions o funciones anonimas
+btn.addEventListener('click', addTask);
 
-
-    const createTask = (evento) => { 
-        evento.preventDefault();
-        const input = document.querySelector ('[data-form-input]');
-        const value = input.value;
-        const list = document.querySelector ('[data-list]');
-        const task = document.createElement('li');
-        task.classList.add('card');
-        input.value = "";
-        const taskContent = document.createElement('div');
-        const tittleTask = document.createElement("span");
-        tittleTask.classList.add('task');
-        tittleTask.innerText = value;
-        taskContent.appendChild(checkComplete());
-        taskContent.appendChild(tittleTask);
-        //task.innerHTML = content;
-
-        task.appendChild(taskContent);
-        task.appendChild(deleteIcon());
-        list.appendChild(task);
-    };
-
-    //Arrow functions o funciones anonimas
-    btn.addEventListener ('click', createTask); 
-
-    
-
-    
-
+displayTasks();
